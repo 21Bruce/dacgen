@@ -51,8 +51,10 @@ dac = np.zeros(len(time))
 
 Fs = (res*steps)/duration 
 
+L = []
 for i in range(0, len(dac), 1):
     dac[i] = samples[int(i/res) % int(spc)]
+  	L.append(str(time[i]) + " " + str(dac[i]) + "\n")
 
 if args.plot:
     fig = plt.figure(figsize=(1, 2))
@@ -71,10 +73,6 @@ if args.plot:
     plt.show()
 
 if args.file:
-    L = []
-    for i in range(0,len(dac)):	
-    	L.append(str(time[i]) + " " + str(dac[i]) + "\n")
-    
     file1 = open("dac_pwl" + str(int(freq)) + ".txt", "w")
     file1.writelines(L)
     file1.close()
