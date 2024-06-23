@@ -54,7 +54,7 @@ Fs = (res*steps)/duration
 L = []
 for i in range(0, len(dac), 1):
     dac[i] = samples[int(i/res) % int(spc)]
-  	L.append(str(time[i]) + " " + str(dac[i]) + "\n")
+    L.append(str(time[i]) + " " + str(dac[i]) + "\n")
 
 if args.plot:
     fig = plt.figure(figsize=(1, 2))
